@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.kotlincoroutineflowdemo.fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_downloadFragment"
+            app:destination="@id/downloadFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_roomFragment"
+            app:destination="@id/roomFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_retrofitFragment"
+            app:destination="@id/retrofitFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_stateFlowFragment"
+            app:destination="@id/stateFlowFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_sharedFlowFragment"
+            app:destination="@id/sharedFlowFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/downloadFragment"
+        android:name="com.example.kotlincoroutineflowdemo.fragments.DownloadFragment"
+        android:label="fragment_download"
+        tools:layout="@layout/fragment_download" />
+    <fragment
+        android:id="@+id/roomFragment"
+        android:name="com.example.kotlincoroutineflowdemo.fragments.RoomFragment"
+        android:label="fragment_room"
+        tools:layout="@layout/fragment_room" />
+    <fragment
+        android:id="@+id/retrofitFragment"
+        android:name="com.example.kotlincoroutineflowdemo.fragments.RetrofitFragment"
+        android:label="fragment_retrofit"
+        tools:layout="@layout/fragment_retrofit" />
+    <fragment
+        android:id="@+id/stateFlowFragment"
+        android:name="com.example.kotlincoroutineflowdemo.fragments.StateFlowFragment"
+        android:label="fragment_state_flow"
+        tools:layout="@layout/fragment_state_flow" />
+    <fragment
+        android:id="@+id/sharedFlowFragment"
+        android:name="com.example.kotlincoroutineflowdemo.fragments.SharedFlowFragment"
+        android:label="fragment_shared_flow"
+        tools:layout="@layout/fragment_shared_flow" />
+</navigation>
