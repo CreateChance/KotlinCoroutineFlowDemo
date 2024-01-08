@@ -4,6 +4,7 @@ import android.app.Application
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,6 +26,7 @@ import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.launch
 import okhttp3.Interceptor
 import okhttp3.MediaType
@@ -118,6 +120,8 @@ class ArticleViewModel(application: Application) : AndroidViewModel(application)
             flow {
                 val list = articleRetrofit.create(ArticleService::class.java).searchArticles(key)
                 emit(list)
+            }.onCompletion {
+                Log.d("GAOCHAO", "流完成了！")
             }.flowOn(Dispatchers.IO).catch { e -> e.printStackTrace() }.collect {
                 articles.value = it
             }
